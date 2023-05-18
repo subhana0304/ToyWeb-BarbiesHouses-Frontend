@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
@@ -9,6 +9,8 @@ const Login = () => {
     const navigate = useNavigate();
     const { login } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
@@ -20,7 +22,7 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        console.log(email, password);
+        // console.log(email, password);
 
         if(password < 6){
             setError('Please include minimum 6 length');
@@ -29,9 +31,9 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                navigate('/');
+                // console.log(user);
                 form.reset();
+                navigate(from, {replace: true});
             })
             .catch(error => {
                 console.log(error);

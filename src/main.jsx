@@ -12,6 +12,11 @@ import Login from './Pages/Login.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import SignUp from './Pages/SignUp.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import Blog from './Pages/Blog.jsx';
+import AllBarbies from './Pages/AllBarbies.jsx';
+import MyBarbies from './Pages/MyBarbies.jsx';
+import AddBarbie from './Pages/AddBarbie.jsx';
+import PrivateRouter from './Router/PrivateRouter.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +34,23 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>
+      },
+      {
+        path: "/allBarbies",
+        element: <AllBarbies></AllBarbies>
+      },
+      {
+        path: "/myBarbies",
+        element: <PrivateRouter><MyBarbies></MyBarbies></PrivateRouter>
+      },
+      {
+        path: "/addBarbie",
+        element: <PrivateRouter><AddBarbie></AddBarbie></PrivateRouter>
       }
-      
     ]
   },
   {
