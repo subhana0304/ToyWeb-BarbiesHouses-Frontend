@@ -4,6 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    // console.log(user?.photoURL);
 
     const handleLogout = () => {
         logOut()
@@ -47,9 +48,10 @@ const Header = () => {
                         <Link className="btn bg-[#FF8087] border-0 hover:bg-[#f34a85] hover:text-white" to="/login">Login</Link>
                 }
                 {user ?
-                                <img className='h-10 ms-2 rounded-full' src={user.photoURL} alt="" />
+                                <img className='h-10 ms-2 rounded-full' src={user?.photoURL} alt="" />
                                 :
                                 ''
+                            
                             }
             </div>
         </div>

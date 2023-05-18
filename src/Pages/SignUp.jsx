@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, updateProfile, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../Firebase/firebase.config';
 
 const SignUp = () => {
@@ -34,7 +34,7 @@ const SignUp = () => {
                 console.log(createdUser);
                 form.reset();
                 navigate('/');
-                updateUserData(result.user, name, photo)
+                updateUserData(createdUser, name, photo)
             })
             .catch((error) => {
                 setError('invalid email or password');
