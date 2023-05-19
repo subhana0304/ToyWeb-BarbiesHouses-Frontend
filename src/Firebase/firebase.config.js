@@ -4,14 +4,16 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// console.log('testing here', import.meta.env.VITE_USER);
 const firebaseConfig = {
-  apiKey: "AIzaSyCrFIJs6m-ojiHh6m7B7nW1sagNWAfnYio",
-  authDomain: "barbies-house-a5f82.firebaseapp.com",
-  projectId: "barbies-house-a5f82",
-  storageBucket: "barbies-house-a5f82.appspot.com",
-  messagingSenderId: "545081030159",
-  appId: "1:545081030159:web:119a000742316847cb957a"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
+// console.log(firebaseConfig);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
