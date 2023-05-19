@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css';
 import {
   createBrowserRouter,
@@ -17,6 +16,7 @@ import AllBarbies from './Pages/AllBarbies.jsx';
 import MyBarbies from './Pages/MyBarbies.jsx';
 import AddBarbie from './Pages/AddBarbie.jsx';
 import PrivateRouter from './Router/PrivateRouter.jsx';
+import SeeDetails from './Components/SeeDetails';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/allBarbies",
         element: <AllBarbies></AllBarbies>
+      },
+      {
+        path: "/barbie/:id",
+        element: <SeeDetails></SeeDetails>
       },
       {
         path: "/myBarbies",
