@@ -15,8 +15,14 @@ const Header = () => {
     const navItems = <>
         <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/'>Home</Link></li>
         <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/allBarbies'>All Barbies</Link></li>
-        <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/myBarbies'>My Barbies</Link></li>
-        <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/addBarbie'>Add Barbie</Link></li>
+        {
+            user ?
+                <>
+                    <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/myBarbies'>My Barbies</Link></li>
+                    <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/addBarbie'>Add Barbie</Link></li>
+                </>
+                : ''
+        }
         <li className='text-slate-500 font-semibold hover:bg-[#FF8087] hover:text-white'><Link to='/blog'>Blog</Link></li>
     </>
 
@@ -48,11 +54,11 @@ const Header = () => {
                         <Link className="btn bg-[#FF8087] border-0 hover:bg-[#f34a85] hover:text-white" to="/login">Login</Link>
                 }
                 {user ?
-                                <img className='h-10 ms-2 rounded-full' src={user?.photoURL} alt="" />
-                                :
-                                ''
-                            
-                            }
+                    <img className='h-10 ms-2 rounded-full' src={user?.photoURL} alt="" />
+                    :
+                    ''
+
+                }
             </div>
         </div>
     );
