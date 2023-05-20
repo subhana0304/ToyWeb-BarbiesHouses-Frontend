@@ -9,7 +9,7 @@ const MyBarbies = () => {
     const { user } = useContext(AuthContext);
     const [barbies, setBarbies] = useState([]);
 
-    const url = `http://localhost:5000/barbies?email=${user.email}`;
+    const url = `http://localhost:5000/myBarbies?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
