@@ -9,6 +9,7 @@ const SeeDetails = () => {
                 <figure><img src={barbie.photoUrl} /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-3xl text-[#FF8087]">{barbie.name}</h2>
+                    <div className="me-10">Seller Name: {barbie.category}</div>
 
                     <div className="me-10">Seller Name: {barbie.sName}</div>
                     <div className="me-10">Seller Email: {barbie.sEmail}</div>
