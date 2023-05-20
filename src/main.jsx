@@ -17,6 +17,7 @@ import MyBarbies from './Pages/MyBarbies.jsx';
 import AddBarbie from './Pages/AddBarbie.jsx';
 import PrivateRouter from './Router/PrivateRouter.jsx';
 import SeeDetails from './Components/SeeDetails';
+import UpdateBarbie from './Pages/UpdateBarbie';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/myBarbies",
         element: <PrivateRouter><MyBarbies></MyBarbies></PrivateRouter>
+      },
+      {
+        path: '/updateBarbie/:id',
+        element: <UpdateBarbie></UpdateBarbie>,
+        loader: ({params}) => fetch(`http://localhost:5000/barbies/${params.id}`)
       },
       {
         path: "/addBarbie",
