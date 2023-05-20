@@ -4,8 +4,10 @@ import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../Provider/AuthProvider';
 import { GoogleAuthProvider, updateProfile, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../Firebase/firebase.config';
+import useTitle from '../Hoocks/useTitle';
 
 const SignUp = () => {
+    useTitle('SignUp');
     const navigate = useNavigate();
     const { createUser } = useContext(AuthContext);
     const [error, setError] = useState('');
