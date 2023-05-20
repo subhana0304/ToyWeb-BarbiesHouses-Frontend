@@ -64,7 +64,7 @@ const Login = () => {
                     <br />
                     <input type="password" name='password' placeholder="Password" className="input input-bordered input-info w-full max-w-xs mb-5" />
                     <br />
-                    <input className='btn bg-[#81D1E5] border-0 w-full max-w-xs' type="submit" value="Login" />
+                    <input className='btn bg-[#FF8087] border-0 w-full max-w-xs' type="submit" value="Login" />
                 </form>
                 <p className='my-5'>Dont have an Account? <Link className='text-info' to='/signUp'>SignUp</Link></p>
                 <p className="text-red-600">
