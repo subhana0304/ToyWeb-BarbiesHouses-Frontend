@@ -1,11 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 import Swal from 'sweetalert2';
 
 const ShopByCategory = () => {
     const [categories, setCategories] = useState([]);
     const {user} = useContext(AuthContext);
+
+    useEffect(()=>{
+        Aos.init({duration:3000});
+    },[]);
 
     useEffect(() => {
         fetch('http://localhost:5000/barbies')
@@ -24,7 +30,7 @@ const ShopByCategory = () => {
                 {
                     categories.map(category =>
                         <>
-                            <div className="card w-96 bg-base-100 shadow-xl">
+                            <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
                                 <figure><img className='' src={category.photoUrl} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
