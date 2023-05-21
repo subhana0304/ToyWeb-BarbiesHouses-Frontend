@@ -51,7 +51,7 @@ const ShopByCategory = () => {
                                         {category.name}
                                     </h2>
                                     <div className="flex">
-                                        <div className="">Price: {category.price}</div>
+                                        <div className="">Price: ${category.price}</div>
                                         <div className="ms-10">Rating: {category.rating}</div>
                                     </div>
                                     {

@@ -8,6 +8,7 @@ const MyBarbies = () => {
     useTitle('MyBarbies');
     const { user } = useContext(AuthContext);
     const [barbies, setBarbies] = useState([]);
+    const [isAscending, setIsAscending] = useState(true);
 
     const url = `http://localhost:5000/myBarbies?email=${user.email}`;
     useEffect(() => {
@@ -15,6 +16,30 @@ const MyBarbies = () => {
             .then(res => res.json())
             .then(data => setBarbies(data))
     }, [])
+
+
+    const sortBarbies = () => {
+        const sortedBarbies = [...barbies]; // Create a copy of the original array
+
+        if (isAscending) {
+            sortedBarbies.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        } else {
+            sortedBarbies.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        }
+
+        setBarbies(sortedBarbies); // Update the state with the sorted array
+    };
+
+
+
+    // Toggle button event handler
+    const handleToggle = () => {
+        setIsAscending(!isAscending); // Toggle the sorting order
+        sortBarbies(); // Sort the array based on the new order
+    };
+
+
+
 
     const handleDelete = (id) => {
         console.log(id);
@@ -36,13 +61,13 @@ const MyBarbies = () => {
                     .then(data => {
                         console.log(data);
                         if (data.deletedCount > 0) {
-                              Swal.fire(
+                            Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                              )
-                              const remaining = barbies.filter(barbie => barbie._id !== id);
-                              setBarbies(remaining)
+                            )
+                            const remaining = barbies.filter(barbie => barbie._id !== id);
+                            setBarbies(remaining)
                         }
                     })
             }
@@ -50,7 +75,13 @@ const MyBarbies = () => {
     }
 
     return (
+
         <div className="overflow-x-auto w-full px-16 my-20 pt-20">
+
+            <div className='text-center my-10 '>
+                <button onClick={handleToggle} className='btn border-0 bg-[#FF8087]'>Sort By Price</button>
+            </div>
+
             <table className="table w-full">
                 <tbody>
                     {
@@ -76,7 +107,7 @@ const MyBarbies = () => {
 
                                 </td>
                                 <td>
-                                    Price: {barbie?.price}
+                                    Price: ${barbie?.price}
                                     <br />
                                     <span className=" badge-sm">Quantity: {barbie?.quantity}</span>
                                 </td>
@@ -89,6 +120,7 @@ const MyBarbies = () => {
                     }
                 </tbody>
             </table>
+
         </div>
     );
 };

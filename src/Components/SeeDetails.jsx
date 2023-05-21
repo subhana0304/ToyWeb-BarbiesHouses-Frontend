@@ -15,7 +15,7 @@ const SeeDetails = () => {
                     <div className="me-10">Seller Email: {barbie.sEmail}</div>
 
 
-                    <div className="me-10">Price: {barbie.price}</div>
+                    <div className="me-10">Price: ${barbie.price}</div>
                     <div className="me-10">Available Quantity: {barbie.quantity}</div>
 
 
