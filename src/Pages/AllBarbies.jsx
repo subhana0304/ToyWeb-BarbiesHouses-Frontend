@@ -8,14 +8,14 @@ const AllBarbies = () => {
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
-        fetch('http://localhost:5000/barbies')
+        fetch('https://barbies-house.vercel.app/barbies')
             .then(res => res.json())
             .then(data => setBarbies(data))
     }, [])
 
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/search/${searchText}`)
+        fetch(`https://barbies-house.vercel.app/search/${searchText}`)
             .then(res => res.json())
             .then(data => setBarbies(data))
     }
