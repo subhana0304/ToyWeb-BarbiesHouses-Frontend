@@ -5,6 +5,8 @@ import useTitle from '../Hoocks/useTitle';
 import ShopByCategory from '../Components/ShopByCategory';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import Testimonial from '../Components/Testimonial';
+import Brand from '../Components/Brand';
 
 
 const Home = () => {
@@ -18,6 +20,8 @@ const Home = () => {
             <Banner></Banner>
             <Gellary data-aos="fade-right"></Gellary>
             <ShopByCategory></ShopByCategory>
+            <Brand></Brand>
+            <Testimonial></Testimonial>
         </div>
     );
 };

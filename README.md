@@ -7,6 +7,6 @@
 * 5. There is Also All Toy page. Where everyone can see All users added barbie and they can get barbie by search on title or Category in this page.
 * 6. In Home page there is a section where everyone can see barbies by category based.
 
-* The Live Link => 
+* The Live Link => https://barbies-house-a5f82.web.app/
 
 **/
