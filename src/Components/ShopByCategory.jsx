@@ -15,7 +15,7 @@ const ShopByCategory = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`https://barbies-house.vercel.app/barbies/${active}`)
+        fetch(`http://localhost:5000/barbies/${active}`)
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [active])

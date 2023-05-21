@@ -10,7 +10,7 @@ const MyBarbies = () => {
     const [barbies, setBarbies] = useState([]);
     const [isAscending, setIsAscending] = useState(true);
 
-    const url = `https://barbies-house.vercel.app/myBarbies?email=${user.email}`;
+    const url = `http://localhost:5000/myBarbies?email=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
@@ -54,7 +54,7 @@ const MyBarbies = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://barbies-house.vercel.app/barbies/${id}`, {
+                fetch(`http://localhost:5000/barbies/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

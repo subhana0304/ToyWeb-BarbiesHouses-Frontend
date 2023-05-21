@@ -31,7 +31,7 @@ const AddBarbie = () => {
 
         console.log(addBarbie);
 
-        fetch('https://barbies-house.vercel.app/barbies',{
+        fetch('http://localhost:5000/barbies',{
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

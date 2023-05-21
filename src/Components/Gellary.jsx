@@ -10,7 +10,7 @@ const Gellary = () => {
     },[]);
     
     useEffect(()=>{
-        fetch('https://barbies-house.vercel.app/gallery')
+        fetch('http://localhost:5000/gallery')
         .then(res => res.json())
         .then(data => setImages(data))
     },[])

@@ -35,7 +35,7 @@ const UpdateBarbie = () => {
 
         console.log(updateBarbie);
 
-        fetch(`https://barbies-house.vercel.app/barbies/${_id}`,{
+        fetch(`http://localhost:5000/barbies/${_id}`,{
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
