@@ -15,5 +15,7 @@
 * {
     font-family: 'Quicksand', sans-serif;
     font-size: 16px;
-    p: gray;
+}
+p{
+    color: gray;
 }

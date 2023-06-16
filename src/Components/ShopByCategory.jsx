@@ -33,18 +33,19 @@ const ShopByCategory = () => {
         <div className='px-16 my-20'>
             <h1 className='text-5xl font-bold text-[#FF8087] text-center'>Barbies By Category</h1>
 
-            <div className='my-10 d-flex justify-center items-center text-center'>
+            <div className='my-10 d-flex justify-center items-center text-center w-100'>
                 <p onClick={() => handleTabClick('All')} className={`tab text-xl All ${active == 'All' ? 'bg-[#FF8087] text-white' : ""}`}>All</p>
                 <p onClick={() => handleTabClick('Dolls')} className={`tab text-xl Dolls ${active == 'Dolls' ? 'bg-[#FF8087] text-white' : ""}`}>Dolls</p>
                 <p onClick={() => handleTabClick('FashionDolls')} className={`tab text-xl Fashion Dolls ${active == 'FashionDolls' ? 'bg-[#FF8087] text-white' : ""}`}>FashionDolls</p>
                 <p onClick={() => handleTabClick('Playsets')} className={`tab text-xl Playsets ${active == 'Playsets' ? 'bg-[#FF8087] text-white' : ""}`}>Playsets</p>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10'>
                 {
                     categories.map(category =>
                         <>
-                            <div data-aos="fade-up" className="card w-96 bg-base-100 shadow-xl">
+                            <div key={category._id}>
+                            <div data-aos="fade-up" className="card w-full bg-base-100 shadow-xl">
                                 <figure><img className='' src={category.photoUrl} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -62,6 +63,7 @@ const ShopByCategory = () => {
                                                 className="btn bg-[#FF8087] border-0 hover:bg-[#f34a85] hover:text-white mt-3" onClick={handleView}>View Details</Link>
                                     }
                                 </div>
+                            </div>
                             </div>
                         </>)
                 }
