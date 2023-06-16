@@ -21,19 +21,20 @@ const AllBarbies = () => {
     }
 
     return (
-        <div className='px-16 my-20'>
+        <div className='px-16 my-20 '>
             <h1 className='text-5xl font-bold text-[#FF8087] text-center'>All Barbies</h1>
 
-            <div className='text-center my-10 space-y-2'>
+            <div className='text-center my-10 space-y-2 w-100'>
                 <input onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search by Name or Category" className="input input-bordered w-full max-w-xs" />
                 <button onClick={handleSearch} className='input input-bordered btn bg-[#FF8087]'>Search</button>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full  mt-10'>
                 {
                     barbies.map(barbie =>
                         <>
-                            <div className="card w-96 bg-base-100 shadow-xl">
+                            <div key={barbie._id}>
+                            <div className="card w-full bg-base-100 shadow-xl">
                                 <figure><img src={barbie.photoUrl} alt="Shoes" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title">
@@ -47,6 +48,7 @@ const AllBarbies = () => {
                                     </div>
                                     <Link className="btn bg-[#FF8087] border-0 hover:bg-[#f34a85] hover:text-white mt-3" to={`/barbie/${barbie._id}`}>See Details</Link>
                                 </div>
+                            </div>
                             </div>
                         </>
                     )
